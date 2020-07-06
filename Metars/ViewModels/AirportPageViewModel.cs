@@ -77,6 +77,8 @@ namespace Metars.ViewModels
             }
 
             if (string.IsNullOrEmpty(AirportCode) || IsBusy) return;
+            if (!AirportCode.ToUpper().StartsWith(Constants.IdentifierChar))
+                AirportCode = AirportCode.Insert(0, Constants.IdentifierChar);
 
             IsBusy = true;
             await AirportService.GetAirportMetar(AirportCode.ToUpper(), new System.Threading.CancellationToken()).ConfigureAwait(false);

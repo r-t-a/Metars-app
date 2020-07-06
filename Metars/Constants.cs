@@ -3,6 +3,8 @@ namespace Metars
 {
     public class Constants
     {
+        public const string IdentifierChar = "K";
+
         public static class APIConstants
         {
             public const string APIKey = "je2tJRYWkeLld3qw5oHFiQxh2r8nso0L3I_V5EVcCMA";
