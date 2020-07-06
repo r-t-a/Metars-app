@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Metars.Views.Controls"
+             x:Class="Metars.Views.Controls.AirportCell">
+    <ContentView.Content>
+
+        <StackLayout Orientation="Vertical"
+                     Margin="8"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Spacing="4">
+
+            <Label Text="{Binding Name}"
+                   FontSize="17"
+                   Margin="0,0,0,4"
+                   VerticalOptions="Start"
+                   FontAttributes="Bold"
+                   TextColor="Blue"/>
+
+            <Label Text="{Binding RAWMetar}"
+                   FontSize="14"
+                   VerticalOptions="Center"
+                   FontAttributes="Bold"
+                   LineBreakMode="WordWrap"
+                   TextColor="Gray"/>
+
+            <controls:Seperator Margin="0,0,-8,-9"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="Ok" xml:space="preserve">
+        <value>Ok</value>
+    </data>
+    <data name="Error_Occured" xml:space="preserve">
+        <value>Error Occured</value>
+    </data>
+    <data name="Metars" xml:space="preserve">
+        <value>METARs</value>
+    </data>
+    <data name="Get_Metar" xml:space="preserve">
+        <value>Get METAR</value>
+    </data>
+    <data name="Identifier_Entry_Placeholder" xml:space="preserve">
+        <value>Airport Identifier (KPDX)</value>
+    </data>
+    <data name="Search" xml:space="preserve">
+        <value>SEARCH</value>
+    </data>
+    <data name="Saved_Searches" xml:space="preserve">
+        <value>SAVED SEARCHES</value>
+    </data>
+     <data name="Delete" xml:space="preserve">
+        <value>Delete</value>
+    </data>
+     <data name="Refresh" xml:space="preserve">
+        <value>Refresh</value>
+    </data>
+    <data name="Last_Updated" xml:space="preserve">
+        <value>Last Updated:</value>
+    </data>
+    <data name="Flight_Rules" xml:space="preserve">
+        <value>Flight Rules:</value>
+    </data>
+    <data name="Altimeter" xml:space="preserve">
+        <value>Altimeter:</value>
+    </data>
+    <data name="Visibility" xml:space="preserve">
+        <value>Visibility:</value>
+    </data>
+    <data name="Dewpoint" xml:space="preserve">
+        <value>Dewpoint:</value>
+    </data>
+    <data name="Temperature" xml:space="preserve">
+        <value>Temperature:</value>
+    </data>
+   <data name="Wind_Direction" xml:space="preserve">
+        <value>Wind Direction:</value>
+    </data>
+    <data name="Wind_Speed" xml:space="preserve">
+        <value>Wind Speed:</value>
+    </data>
+    <data name="Info" xml:space="preserve">
+        <value>INFO</value>
+    </data>
+    <data name="Runways" xml:space="preserve">
+        <value>Runways:</value>
+    </data>
+    <data name="More_Info" xml:space="preserve">
+        <value>MORE INFO</value>
+    </data>
+    <data name="Latitude" xml:space="preserve">
+        <value>Latitude:</value>
+    </data>
+    <data name="Longitude" xml:space="preserve">
+        <value>Longitude:</value>
+    </data>
+     <data name="Name" xml:space="preserve">
+        <value>Name:</value>
+    </data>
+     <data name="Note" xml:space="preserve">
+        <value>Note:</value>
+    </data>
+    <data name="Elevation" xml:space="preserve">
+        <value>Elevation:</value>
+    </data>
+    <data name="Check_Connection" xml:space="preserve">
+        <value>Internet connection required</value>
+    </data>
+</root>

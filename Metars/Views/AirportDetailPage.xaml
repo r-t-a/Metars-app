@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:Metars.Resources.XamlMarkupExtensions"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:controls="clr-namespace:Metars.Views.Controls" 
+             ios:Page.UseSafeArea="true"
+             Title="{Binding SelectedAirport.Name}"
+             x:Class="Metars.Views.AirportDetailPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="Gray"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+            <Style x:Key="SectionHeader" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="8,16,8,4"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+            </Style>
+            <Style x:Key="LabelValue" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         Margin="0,8,0,0"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
+
+                <Label Text="{Binding SelectedAirport.RAWMetar}"
+                       FontSize="16"
+                       Margin="8,0,8,0"
+                       HorizontalOptions="CenterAndExpand"
+                       HorizontalTextAlignment="Center"
+                       LineBreakMode="WordWrap"
+                       FontAttributes="Bold"/>
+
+                <Grid VerticalOptions="Start"
+                      HorizontalOptions="FillAndExpand"
+                      ColumnDefinitions="30*, 70*"
+                      RowDefinitions="20,20,20,20,20,20,20,20"
+                      Margin="8">
+
+                    <Label Grid.Column="0"
+                           Grid.Row="0"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Last_Updated}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="0"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding SelectedAirport.LastUpdate}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="1"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Flight_Rules}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="1"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding SelectedAirport.FlightRules}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="2"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Altimeter}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="2"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding SelectedAirport.AltimeterSetting}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="3"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Visibility}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="3"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding SelectedAirport.Visibility, StringFormat='{0}SM'}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="4"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Temperature}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="4"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding SelectedAirport.Temperature, StringFormat='{0}°C'}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="5"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Dewpoint}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="5"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding SelectedAirport.DewPoint, StringFormat='{0}°C'}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="6"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Wind_Direction}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="6"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding SelectedAirport.WindDirection, StringFormat='{0}°'}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="7"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Wind_Speed}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="7"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding SelectedAirport.WindSpeed, StringFormat='{0} kt'}"/>
+                </Grid>
+
+                <Label Text="{resources:Localization More_Info}"
+                       Style="{StaticResource SectionHeader}"/>
+
+                <Grid VerticalOptions="Start"
+                      HorizontalOptions="FillAndExpand"
+                      ColumnDefinitions="30*, 70*"
+                      RowDefinitions="20,20,20,20,20,20"
+                      Margin="8">
+
+                    <Label Grid.Column="0"
+                           Grid.Row="0"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Name}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="0"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding StationInfo.Name}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="1"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Note}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="1"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding StationInfo.Note}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="2"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Latitude}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="2"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding StationInfo.Latitude}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="3"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Longitude}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="3"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding StationInfo.Longitude}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="4"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Elevation}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="4"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding StationInfo.Elevation, StringFormat='{0}ft'}"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="5"
+                           Style="{StaticResource LabelTitle}"
+                           Text="{resources:Localization Runways}"/>
+
+                    <Label Grid.Column="1"
+                           Grid.Row="5"
+                           Style="{StaticResource LabelValue}"
+                           Text="{Binding StationInfo.RunwayCount}"/>
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

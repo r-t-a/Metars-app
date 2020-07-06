@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metars.iOS", "Metars.iOS\Me
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metars", "Metars\Metars.csproj", "{F7457FF6-08AB-4537-B177-FCC906BBAC9C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F1D55550-56CF-4417-BA18-520C2C945719}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,5 +57,20 @@ Global
 		{F7457FF6-08AB-4537-B177-FCC906BBAC9C}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{F7457FF6-08AB-4537-B177-FCC906BBAC9C}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{F7457FF6-08AB-4537-B177-FCC906BBAC9C}.Release|iPhone.Build.0 = Release|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0}.Release|iPhone.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EC346135-6C9F-4A00-BAFF-D47A7B8ECED0} = {F1D55550-56CF-4417-BA18-520C2C945719}
 	EndGlobalSection
 EndGlobal

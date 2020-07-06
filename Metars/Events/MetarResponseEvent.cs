@@ -5,19 +5,21 @@ using Prism.Events;
 
 namespace Metars.Events
 {
-    public struct Station
+    public struct MetarResult
     {
         public HttpStatusCode StatusCode { get; set; }
-        public StationResponse StationResponse { get; set; }
-        public Station(StationResponse response, HttpStatusCode statusCode)
+        public MetarResponse MetarResponse { get; set; }
+        public string AirportIdentifier { get; set; }
+
+        public MetarResult(MetarResponse response, HttpStatusCode statusCode, string airportIdentifier)
         {
-            StationResponse = response;
+            MetarResponse = response;
             StatusCode = statusCode;
+            AirportIdentifier = airportIdentifier;
         }
     }
 
-    public class StationResponseEvent : PubSubEvent<Station>
+    public class MetarResponseEvent : PubSubEvent<MetarResult>
     {
-        
     }
 }

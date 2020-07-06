@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Metars.Views.Controls"
+             xmlns:converters="clr-namespace:Metars.Converters"
+             xmlns:resources="clr-namespace:Metars.Resources.XamlMarkupExtensions"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             Title="{resources:Localization Metars}"
+             x:Class="Metars.Views.AirportPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SectionHeader" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="8,16,8,4"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+            </Style>
+            <Color x:Key="PrimaryBlue">#3483F6</Color>
+            <converters:BooleanNegatedConverter x:Key="BooleanNegatedConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Spacing="8">
+
+            <Label Text="{resources:Localization Search}"
+                   Style="{StaticResource SectionHeader}"/>
+
+            <StackLayout Orientation="Horizontal"
+                         Margin="8,0,8,0"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="Start">
+
+                 <Entry Visual="Material"
+                        Placeholder="{resources:Localization Identifier_Entry_Placeholder}"
+                        PlaceholderColor="Gray"
+                        BackgroundColor="Transparent"
+                        VerticalOptions="End"
+                        HorizontalOptions="FillAndExpand"
+                        FontSize="14"
+                        Text="{Binding AirportCode}"
+                        TextColor="Black"/>
+
+                <Button Text="{resources:Localization Get_Metar}"
+                        Command="{Binding GetMetarCommand}"
+                        BorderColor="{StaticResource PrimaryBlue}"
+                        TextColor="{StaticResource PrimaryBlue}"
+                        BorderWidth="1"
+                        HeightRequest="40"
+                        WidthRequest="100"
+                        CornerRadius="5"
+                        Margin="8,0,8,0"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="End"
+                        VerticalOptions="End"/>
+
+            </StackLayout>
+
+            <Label Text="{resources:Localization Saved_Searches}"
+                   Style="{StaticResource SectionHeader}"/>
+
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="True"
+                               HeightRequest="25"
+                               WidthRequest="25"
+                               Visual="Material"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="Start"/>
+
+            <controls:EmptyListView IsVisible="{Binding HasSavedItems, Converter={StaticResource BooleanNegatedConverter}}"/>
+
+            <ListView x:Name="AirportList"
+                      ItemsSource="{Binding Airports}"
+                      IsVisible="{Binding HasSavedItems}"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="True"
+                      ItemTapped="AirportListView_ItemTapped"
+                      VerticalOptions="FillAndExpand"
+                      HorizontalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <controls:DisableBackgroundColorViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="OnRefresh"
+                                          CommandParameter="{Binding .}"
+                                          IsDestructive="False"
+                                          Text="{resources:Localization Refresh}"/>
+                                <MenuItem Clicked="OnDelete"
+                                          CommandParameter="{Binding .}"
+                                          IsDestructive="True"
+                                          Text="{resources:Localization Delete}"/>
+                            </ViewCell.ContextActions>
+
+                            <controls:AirportCell/>
+                        </controls:DisableBackgroundColorViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
