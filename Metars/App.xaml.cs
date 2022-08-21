@@ -8,7 +8,6 @@ using Metars.Views;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Crashes;
 using Prism;
-using Prism.Events;
 using Prism.Ioc;
 using Prism.Unity;
 using Xamarin.Forms.Xaml;

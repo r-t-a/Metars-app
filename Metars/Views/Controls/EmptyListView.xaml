@@ -1,19 +1,22 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Metars.Views.Controls.EmptyListView">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Metars.Views.Controls.EmptyListView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ContentView.Content>
-        <StackLayout Orientation="Vertical"
-                     HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand">
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            Orientation="Vertical"
+            VerticalOptions="FillAndExpand">
 
-            <Label Text="No Saved Searches"
-                   HorizontalOptions="CenterAndExpand"
-                   HorizontalTextAlignment="Center"
-                   VerticalOptions="CenterAndExpand"
-                   TextColor="Gray"
-                   FontSize="16"/>
+            <Label
+                FontSize="16"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="No Saved Searches"
+                TextColor="Gray"
+                VerticalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

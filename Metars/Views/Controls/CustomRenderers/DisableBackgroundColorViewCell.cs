@@ -1,7 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
-namespace Metars.Views.Controls
+namespace Metars.Views.Controls.CustomRenderers
 {
     public class DisableBackgroundColorViewCell : ViewCell
     {

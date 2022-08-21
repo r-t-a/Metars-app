@@ -4,16 +4,19 @@ using Xamarin.Forms;
 
 namespace Metars.Converters
 {
-    public class BooleanNegatedConverter : IValueConverter
+    public class BooleanToColorConverter : IValueConverter
     {
+        public Color TrueColor { get; set; }
+        public Color DefaultColor { get; set; }
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return !(bool)value;
+            return (bool)value ? TrueColor : DefaultColor;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return !(bool)value;
+            return (Color)value == TrueColor;
         }
     }
 }

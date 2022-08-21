@@ -1,6 +1,6 @@
 ﻿using System;
 using Metars.iOS.Renderer;
-using Metars.Views.Controls;
+using Metars.Views.Controls.CustomRenderers;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;

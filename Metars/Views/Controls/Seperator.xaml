@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
+    x:Class="Metars.Views.Controls.Seperator"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Metars.Views.Controls.Seperator">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ContentView.Content>
-        <BoxView HeightRequest="1"
-                 BackgroundColor="Gray"
-                 HorizontalOptions="FillAndExpand"
-                 VerticalOptions="EndAndExpand"/>
+        <BoxView
+            BackgroundColor="Gray"
+            HeightRequest="1"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="EndAndExpand" />
     </ContentView.Content>
 </ContentView>

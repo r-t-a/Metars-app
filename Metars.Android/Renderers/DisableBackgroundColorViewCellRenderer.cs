@@ -1,6 +1,6 @@
 ﻿using System;
 using Metars.Droid.Renderers;
-using Metars.Views.Controls;
+using Metars.Views.Controls.CustomRenderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
