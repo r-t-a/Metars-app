@@ -39,6 +39,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding SortCommand}" Text="Sort" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout
             x:Name="MainLayout"
@@ -69,43 +73,35 @@
                     VerticalOptions="CenterAndExpand" />
             </StackLayout>
 
-            <StackLayout
-                Margin="8,0,8,0"
+            <Entry
+                BackgroundColor="Transparent"
+                FontSize="14"
                 HorizontalOptions="FillAndExpand"
-                Orientation="Horizontal"
-                VerticalOptions="Start">
+                Placeholder="{resources:Localization Identifier_Entry_Placeholder}"
+                PlaceholderColor="Gray"
+                Text="{Binding AirportCode}"
+                VerticalOptions="End"
+                Visual="Material">
+                <Entry.Behaviors>
+                    <behavior:ValidIdentifierBehavior />
+                </Entry.Behaviors>
+            </Entry>
 
-                <Entry
-                    BackgroundColor="Transparent"
-                    FontSize="14"
-                    HorizontalOptions="FillAndExpand"
-                    Placeholder="{resources:Localization Identifier_Entry_Placeholder}"
-                    PlaceholderColor="Gray"
-                    Text="{Binding AirportCode}"
-                    VerticalOptions="End"
-                    Visual="Material">
-                    <Entry.Behaviors>
-                        <behavior:ValidIdentifierBehavior />
-                    </Entry.Behaviors>
-                </Entry>
-
-                <renderers:GradientButton
-                    Margin="8,0,8,0"
-                    BorderColor="{StaticResource PrimaryBlue}"
-                    BorderWidth="1"
-                    Command="{Binding GetMetarCommand}"
-                    CornerRadius="5"
-                    EndColor="White"
-                    FlowDirection="MatchParent"
-                    HeightRequest="40"
-                    HorizontalOptions="End"
-                    StartColor="LightBlue"
-                    Text="{resources:Localization Get_Metar}"
-                    TextColor="Black"
-                    VerticalOptions="End"
-                    WidthRequest="100" />
-
-            </StackLayout>
+            <renderers:GradientButton
+                Margin="8"
+                BorderColor="{StaticResource PrimaryBlue}"
+                BorderWidth="1"
+                Command="{Binding GetMetarCommand}"
+                CornerRadius="5"
+                EndColor="White"
+                FlowDirection="MatchParent"
+                HeightRequest="50"
+                HorizontalOptions="CenterAndExpand"
+                StartColor="LightBlue"
+                Text="{resources:Localization Get_Metar}"
+                TextColor="Black"
+                VerticalOptions="End"
+                WidthRequest="150" />
 
             <Label Style="{StaticResource SectionHeader}" Text="{resources:Localization Saved_Searches}" />
 
@@ -150,6 +146,19 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+            <SearchBar
+                Margin="0,0,0,16"
+                BackgroundColor="Transparent"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="{resources:Localization Filter}"
+                PlaceholderColor="Gray"
+                SearchCommand="{Binding FilterCommand}"
+                Text="{Binding FilterText}"
+                Unfocused="SearchBar_Unfocused"
+                VerticalOptions="End"
+                Visual="Material" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

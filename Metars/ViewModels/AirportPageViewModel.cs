@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Metars.Events;
+using Metars.Helpers;
 using Metars.Models;
 using Metars.Resources;
 using Metars.Services.Interfaces;
@@ -22,6 +23,7 @@ namespace Metars.ViewModels
         public ObservableCollection<Airport> Airports { get; set; } = new ObservableCollection<Airport>();
 
         public string AirportCode { get; set; }
+        public string FilterText { get; set; }
         public bool IsBusy { get; set; }
         public bool HasSavedItems { get; set; }
 
@@ -36,6 +38,12 @@ namespace Metars.ViewModels
 
         private DelegateCommand<Airport> _deleteAirportCommand;
         public ICommand DeleteAirportCommand { get { return _deleteAirportCommand ?? (_deleteAirportCommand = new DelegateCommand<Airport>(async (airport) => await DeleteAirport(airport))); } }
+
+        private DelegateCommand _sortCommand;
+        public ICommand SortCommand { get { return _sortCommand ?? (_sortCommand = new DelegateCommand(async () => await SortList())); } }
+
+        private DelegateCommand _filterCommand;
+        public ICommand FilterCommand { get { return _filterCommand ?? (_filterCommand = new DelegateCommand(async() => await FilterAirports())); } }
 
         public AirportPageViewModel(INavigationService navigationService, IAppNavigationService teamNavigationService, IEventAggregator eventAggregator)
             : base(navigationService, teamNavigationService, eventAggregator) => AddEventSubscriptions(this);
@@ -76,7 +84,7 @@ namespace Metars.ViewModels
                 return;
             }
 
-            if (string.IsNullOrEmpty(AirportCode) || IsBusy) return;
+            if (string.IsNullOrWhiteSpace(AirportCode) || IsBusy) return;
             if (!AirportCode.ToUpper().StartsWith(Constants.IdentifierChar))
                 AirportCode = AirportCode.Insert(0, Constants.IdentifierChar);
 
@@ -125,6 +133,25 @@ namespace Metars.ViewModels
                 Airports.Remove(airport);
             }
             HasSavedItems = Airports != null && Airports.Any();
+        }
+
+        private async Task SortList()
+        {
+            var result = await SafeUserDialogs.Instance.ShowActionSheetAsync(null, null, new[] { "Default", "Name" });
+
+            if (result == "Default")
+                Airports = new ObservableCollection<Airport>(Airports.OrderBy(x => x.Id).ToList());
+
+            if (result == "Name")
+                Airports = new ObservableCollection<Airport>(Airports.OrderBy(x => x.Name).ToList());
+        }
+
+        private async Task FilterAirports()
+        {
+            var airports = await AirportService.GetAllAirports(new System.Threading.CancellationToken()).ConfigureAwait(false);
+            Airports = !string.IsNullOrWhiteSpace(FilterText)
+                ? new ObservableCollection<Airport>(airports.Where(x => x.Name.Trim().ToUpper().Contains(FilterText.Trim().ToUpper())).ToList())
+                : new ObservableCollection<Airport>(airports);
         }
 
         private async Task NavigateToDetails(Airport airport)

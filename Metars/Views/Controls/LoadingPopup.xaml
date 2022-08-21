@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rg:PopupPage
+    x:Class="Metars.Views.Controls.LoadingPopup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:rg="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+
+    <rg:PopupPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="PopupFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="Padding" Value="15" />
+            </Style>
+        </ResourceDictionary>
+    </rg:PopupPage.Resources>
+
+    <Frame
+        HorizontalOptions="Center"
+        Style="{StaticResource PopupFrame}"
+        VerticalOptions="Center">
+        <StackLayout>
+            <ActivityIndicator Margin="0,10,0,0" IsRunning="True">
+                <ActivityIndicator.Scale>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android">1</On>
+                        <On Platform="iOS">2</On>
+                    </OnPlatform>
+                </ActivityIndicator.Scale>
+            </ActivityIndicator>
+            <Label FontAttributes="Bold" Text="{Binding TitleText}">
+                <Label.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">10,20,10,0</On>
+                        <On Platform="Android">5,5,5,0</On>
+                    </OnPlatform>
+                </Label.Margin>
+            </Label>
+        </StackLayout>
+    </Frame>
+</rg:PopupPage>

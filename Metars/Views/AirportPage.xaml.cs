@@ -59,5 +59,10 @@ namespace Metars.Views
                 TooltipEffect.SetHasTooltip(QuestionToolTip, true);
             }
         }
+
+        private void SearchBar_Unfocused(object sender, FocusEventArgs e)
+        {
+            ViewModel.FilterCommand.Execute(null);
+        }
     }
 }

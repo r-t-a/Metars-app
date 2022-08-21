@@ -6,6 +6,7 @@ using Metars.iOS.Services;
 using Metars.Services.Interfaces;
 using Prism;
 using Prism.Ioc;
+using Rg.Plugins.Popup;
 using UIKit;
 using Xamarin.Forms;
 
@@ -18,6 +19,7 @@ namespace Metars.iOS
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Popup.Init();
             Forms.Init();
             FormsMaterial.Init();
 
