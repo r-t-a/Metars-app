@@ -11,6 +11,7 @@ namespace Metars.Views.Styles
         public const string IOSFontName = "Material Design Icons";
         public const string AndroidFontName = "materialdesignicons-webfont.ttf#Material Design Icons";
 
+        public const string InformationOutline = "\U000f02fd";
         public const string QuestionMarkOutline = "\U000f0186";
     }
 }

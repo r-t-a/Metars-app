@@ -51,18 +51,18 @@ namespace Metars.Views
             CloseTooltip();
         }
 
-        private void CloseTooltip()
-        {
-            if (TooltipEffect.GetHasTooltip(QuestionToolTip))
-            {
-                TooltipEffect.SetHasTooltip(QuestionToolTip, false);
-                TooltipEffect.SetHasTooltip(QuestionToolTip, true);
-            }
-        }
-
         private void SearchBar_Unfocused(object sender, FocusEventArgs e)
         {
             ViewModel.FilterCommand.Execute(null);
+        }
+
+        private void CloseTooltip()
+        {
+            if (TooltipEffect.GetHasTooltip(InfoToolTip))
+            {
+                TooltipEffect.SetHasTooltip(InfoToolTip, false);
+                TooltipEffect.SetHasTooltip(InfoToolTip, true);
+            }
         }
     }
 }
